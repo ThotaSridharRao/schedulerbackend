@@ -44,6 +44,10 @@ const TaskSchema = new mongoose.Schema({
     min: [1, 'Duration must be at least 1 minute'],
     default: 30
   },
+  notified: { // NEW FIELD: To track if a notification has been sent for this task
+    type: Boolean,
+    default: false
+  },
   createdAt: {
     type: Date,
     default: Date.now
