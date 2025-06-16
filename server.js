@@ -13,7 +13,12 @@ connectDB();
 const app = express();
 
 // Middleware
-app.use(cors()); // Enable CORS for all routes
+// Configure CORS to explicitly allow your frontend's origin
+// This is crucial to prevent "Access-Control-Allow-Origin" errors
+app.use(cors({
+  origin: 'https://scheduler-pkxg.onrender.com' // Replace with your actual frontend URL
+}));
+
 app.use(express.json()); // Body parser for JSON data
 
 // Import routes
